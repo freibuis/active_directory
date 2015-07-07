@@ -40,4 +40,12 @@ ActiveDirectory::Base.enable_cache
 ActiveDirectory::Base.disable_cache
 ActiveDirectory::Base.cache?
 
+#Changing Base Location 
+# Narrows search to new base OU and lowers lookups on large Active Directory databases 
+ActiveDirectory::Base.base = "CN=Users,dc=example,dc=local'
+ActiveDirectory::User.find(:all)
+ 
+#Changing base to sub OU
+ActiveDirectory::Base.base = "OU=Head Office,OU=Security Groups,dc=example,dc=local"
+ActiveDirectory::Group.find(:all)
 </pre>
