@@ -87,6 +87,18 @@ module ActiveDirectory
 			@@ldap = Net::LDAP.new(settings)
 		end
 
+		##
+		# Sets the base of the ldap connection
+		def self.base=(base)
+			@@ldap.base = base
+		end
+
+		##
+		# Return the base of the ldap connection
+		def self.base
+			@@ldap.base
+		end
+
 		def self.error
 			"#{@@ldap.get_operation_result.code}: #{@@ldap.get_operation_result.message}"
 		end
