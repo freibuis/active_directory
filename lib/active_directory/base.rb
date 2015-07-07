@@ -90,6 +90,7 @@ module ActiveDirectory
 		##
 		# Sets the base of the ldap connection
 		def self.base=(base)
+			@@settings[:base] = base
 			@@ldap.base = base
 		end
 
