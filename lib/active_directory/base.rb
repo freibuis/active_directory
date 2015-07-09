@@ -277,7 +277,7 @@ module ActiveDirectory
 
 			options = {
 				:filter => (args[1].nil?) ? NIL_FILTER : args[1],
-				:in ''
+				:in     => ''
 			}
 
 			cached_results = find_cached_results(args[1])
