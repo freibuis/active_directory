@@ -277,9 +277,8 @@ module ActiveDirectory
 
 			options = {
 				:filter => (args[1].nil?) ? NIL_FILTER : args[1],
-				:in => (args[1].nil?) ? '' : ( args[1][:in] || '' )
+				:in ''
 			}
-			options[:filter].delete(:in)
 
 			cached_results = find_cached_results(args[1])
 			return cached_results if cached_results or cached_results.nil?
