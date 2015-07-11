@@ -132,6 +132,17 @@ module ActiveDirectory
                         return @member_users
 		end
 
+                #
+                # Returns an array of all member dns that belong to this group other wise return empty array
+                #
+                # unlike member_users, members does not do a Ldap look up to return
+                # User Object. Useful when all you want is DN's or get_attr 'member' 
+                # does not work.
+                #
+                def members
+                  has_members? ? @entry.member : []
+                end
+
 		#
 		# Returns an array of all Group objects that belong to this group.
 		#
