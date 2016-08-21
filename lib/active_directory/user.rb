@@ -78,6 +78,17 @@ module ActiveDirectory
 		def groups
 			@groups ||= Group.find(:all, :distinguishedname => @entry[:memberOf] )
 		end
+		
+		#
+		# Returns an array of all group dns that belong to this user other wise return empty array
+		#
+		# unlike group, groups_dn does not do a Ldap look up to return
+		# User Object. Useful when all you want is DN's or get_attr 'memberof'
+		# does not work.
+		#
+		def groups_dn
+			@entry[:memberOf] ? @entry[:memberOf] : []
+		end
 
 		#
 		# Returns an array of User objects that have this
